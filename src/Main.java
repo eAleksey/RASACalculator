@@ -57,7 +57,7 @@ public class Main {
             return output;
         }
     }
-    static boolean isValidInputArgument(String[] strings) throws IllegalArgumentException {
+    private static boolean isValidInputArgument(String[] strings) throws IllegalArgumentException {
         if (strings.length == 3 && strings[0].matches("^(X|IX|IV|VI{0,3}|I{1,3})$")
             && strings[2].matches("^(X|IX|IV|VI{0,3}|I{1,3})$")) {
             return true;
@@ -68,7 +68,7 @@ public class Main {
             throw new IllegalArgumentException("Неправильные аргументы выражения или их количество!");
         }
     }
-    static int romanStringToArabicValue(String string) {
+    private static int romanStringToArabicValue(String string) {
         int previous = 0;
         int result = 0;
         for (int i = string.length() - 1; i >= 0; i--) {
@@ -82,7 +82,7 @@ public class Main {
         }
         return result;
     }
-    static int romanSimbolToArabicNumber(char ch) {
+    private static int romanSimbolToArabicNumber(char ch) {
         int result = 0;
         switch (ch) {
             case 'I':
@@ -100,7 +100,7 @@ public class Main {
         }
         return result;
     }
-    static String arabicNumberToRomanSimbols(int number) {
+    private static String arabicNumberToRomanSimbols(int number) {
         int[] values = {10, 9, 5, 4, 1};
         String[] romanSimbols = {"X", "IX", "V", "IV", "I"};
         StringBuilder stringBuilder = new StringBuilder();
