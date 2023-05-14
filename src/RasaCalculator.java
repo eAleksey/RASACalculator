@@ -1,5 +1,27 @@
+/*
+ * @(#)RasaCalculator.java        1.1 2023/05/14
+ *
+ * Copyright (c) Aleksei Trokhin
+ * a.trokhin@gmail.com
+ * All rights reserved.
+ *
+ * This software is the confidential and proprietary information
+ * of Aleksei Trokhin ("Confidential Information").  You shall not
+ * disclose such Confidential Information and shall use it only in
+ * accordance with the terms of the license agreement you entered into
+ * with Aleksei Trokhin.
+ */
+
 import java.util.*;
-public class RASACalculator {
+
+/**
+ * This class is designed for arithmetic operations for Roman and Arabic
+ * numerals from 1 to 10.
+ *
+ * @version
+1.1 14 May 2023   * @author
+Aleksey Trokhin */
+public class RasaCalculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
@@ -64,7 +86,7 @@ public class RASACalculator {
                    && strings[2].matches("[0-9]+")) {
             return false;
         } else {
-            throw new IllegalArgumentException("Неправильные аргументы выражения или их количество!");
+            throw new IllegalArgumentException("Неправильные аргументы или их количество!");
         }
     }
     private static int romanStringToArabicValue(String string) {
@@ -100,8 +122,8 @@ public class RASACalculator {
         return result;
     }
     private static String arabicNumberToRomanSimbols(int number) {
-        int[] values = {10, 9, 5, 4, 1};
-        String[] romanSimbols = {"X", "IX", "V", "IV", "I"};
+        int[] values = {100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] romanSimbols = {"C", "CX", "L", "XL", "X", "IX", "V", "IV", "I"};
         StringBuilder stringBuilder = new StringBuilder();
         int i = 0;
         while (number > 0) {
