@@ -15,8 +15,8 @@
 import java.util.*;
 
 /**
- *
- This class .
+ * This class is designed for arithmetic operations for Roman and Arabic
+ * numerals from 1 to 10.
  *
  * @version
 1.1 14 May 2023   * @author
