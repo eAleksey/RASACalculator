@@ -2,7 +2,7 @@
  * @(#)RasaCalculator.java        1.1 2023/05/14
  *
  * Copyright (c) Aleksei Trokhin
- * a.trokhin@gmail.com
+ * 
  * All rights reserved.
  *
  * This software is the confidential and proprietary information
