@@ -20,7 +20,7 @@ import java.util.*;
  *
  * @version
 1.1 14 May 2023   * @author
-Aleksey Trokhin */
+Aleksei Trokhin */
 public class RasaCalculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -123,7 +123,7 @@ public class RasaCalculator {
     }
     private static String arabicNumberToRomanSimbols(int number) {
         int[] values = {100, 90, 50, 40, 10, 9, 5, 4, 1};
-        String[] romanSimbols = {"C", "CX", "L", "XL", "X", "IX", "V", "IV", "I"};
+        String[] romanSimbols = {"C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
         StringBuilder stringBuilder = new StringBuilder();
         int i = 0;
         while (number > 0) {
