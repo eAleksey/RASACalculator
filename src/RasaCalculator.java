@@ -1,5 +1,5 @@
 /*
- * @(#)RasaCalculator.java        1.1 2023/05/14
+ * @(#)RasaCalculator.java        1.2 2023/05/15
  *
  * Copyright (c) Aleksei Trokhin
  * 
@@ -19,7 +19,7 @@ import java.util.*;
  * numerals from 1 to 10.
  *
  * @version
-1.1 14 May 2023   * @author
+1.2 14 May 2023   * @author
 Aleksei Trokhin */
 public class RasaCalculator {
     public static void main(String[] args) {
@@ -29,7 +29,7 @@ public class RasaCalculator {
         String output = calc(input);
         System.out.print(output);
     }
-    public static String calc(String input) {
+    public static String calc(String input) throws IllegalArgumentException {
         try {
             String[] strings = input.split("[ ]+");
             boolean validInputArgument = isValidInputArgument(strings);
@@ -64,7 +64,7 @@ public class RasaCalculator {
             String output = " ";
             if (validInputArgument) {
                 if (result > 0) {
-                    output = arabicNumberToRomanSimbols(result);
+                    output = arabicNumberToRomanString(result);
                     return output;
                 } else {
                     throw new IllegalArgumentException("Отрицательное или нулевое Римское Число!");
@@ -91,37 +91,37 @@ public class RasaCalculator {
     }
     private static int romanStringToArabicValue(String string) {
         int previous = 0;
-        int result = 0;
+        int arabicValue = 0;
         for (int i = string.length() - 1; i >= 0; i--) {
             int current = romanSimbolToArabicNumber(string.charAt(i));
             if (current >= previous) {
-                result = result + current;
+                arabicValue = arabicValue + current;
             } else {
-                result = result - current;
+                arabicValue = arabicValue - current;
             }
             previous = current;
         }
-        return result;
+        return arabicValue;
     }
-    private static int romanSimbolToArabicNumber(char ch) {
-        int result = 0;
-        switch (ch) {
+    private static int romanSimbolToArabicNumber(char romanSimbol) {
+        int arabicNumber = 0;
+        switch (romanSimbol) {
             case 'I':
-                result = 1;
+                arabicNumber = 1;
                 break;
             case 'V':
-                result = 5;
+                arabicNumber = 5;
                 break;
             case 'X':
-                result = 10;
+                arabicNumber = 10;
                 break;
             default:
-                result = -1;
+                arabicNumber = -1;
                 break;
         }
-        return result;
+        return arabicNumber;
     }
-    private static String arabicNumberToRomanSimbols(int number) {
+    private static String arabicNumberToRomanString(int number) {
         int[] values = {100, 90, 50, 40, 10, 9, 5, 4, 1};
         String[] romanSimbols = {"C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
         StringBuilder stringBuilder = new StringBuilder();
@@ -134,6 +134,7 @@ public class RasaCalculator {
                 i++;
             }
         }
-        return stringBuilder.toString();
+        String romanString = stringBuilder.toString();
+        return romanString;
     }
 }
